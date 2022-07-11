@@ -2,6 +2,7 @@ const express=require("express");
 const app=express();
 const connect=require("./configs/db");
 const cors=require("cors")
+const port = process.env.PORT || 8080;
 const userController=require("./controllers/userController");
 const addressContoller=require("./controllers/address.controller");
 const brandsController=require("./controllers/brandsController");
@@ -17,7 +18,7 @@ app.use("/products",productCOntroller);
 app.use("/brands",brandsController);
 app.use("/reviews",ReviewsController);
 
-app.listen(5000,async()=>{
+app.listen(port,async()=>{
     try{
      await connect();
      console.log("connected")
